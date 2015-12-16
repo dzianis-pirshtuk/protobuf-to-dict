@@ -1,3 +1,7 @@
+from builtins import str
+import codecs
+from builtins import int
+from past.builtins import basestring
 from google.protobuf.message import Message
 from google.protobuf.descriptor import FieldDescriptor
 
@@ -12,18 +16,18 @@ TYPE_CALLABLE_MAP = {
     FieldDescriptor.TYPE_DOUBLE: float,
     FieldDescriptor.TYPE_FLOAT: float,
     FieldDescriptor.TYPE_INT32: int,
-    FieldDescriptor.TYPE_INT64: long,
+    FieldDescriptor.TYPE_INT64: int,
     FieldDescriptor.TYPE_UINT32: int,
-    FieldDescriptor.TYPE_UINT64: long,
+    FieldDescriptor.TYPE_UINT64: int,
     FieldDescriptor.TYPE_SINT32: int,
-    FieldDescriptor.TYPE_SINT64: long,
+    FieldDescriptor.TYPE_SINT64: int,
     FieldDescriptor.TYPE_FIXED32: int,
-    FieldDescriptor.TYPE_FIXED64: long,
+    FieldDescriptor.TYPE_FIXED64: int,
     FieldDescriptor.TYPE_SFIXED32: int,
-    FieldDescriptor.TYPE_SFIXED64: long,
+    FieldDescriptor.TYPE_SFIXED64: int,
     FieldDescriptor.TYPE_BOOL: bool,
-    FieldDescriptor.TYPE_STRING: unicode,
-    FieldDescriptor.TYPE_BYTES: lambda b: b.encode("base64"),
+    FieldDescriptor.TYPE_STRING: str,
+    FieldDescriptor.TYPE_BYTES: lambda b: codecs.encode(b, "base64"),
     FieldDescriptor.TYPE_ENUM: int,
 }
 
@@ -73,7 +77,7 @@ def _get_field_value_adaptor(pb, field, type_callable_map=TYPE_CALLABLE_MAP, use
 
 
 def get_bytes(value):
-    return value.decode('base64')
+    return codecs.decode(value, 'base64')
 
 
 REVERSE_TYPE_CALLABLE_MAP = {

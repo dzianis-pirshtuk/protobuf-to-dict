@@ -1,3 +1,5 @@
+from builtins import str
+from builtins import range
 import unittest
 from tests.sample_pb2 import MessageOfTypes, extDouble, extString, NestedExtension
 from protobuf_to_dict import protobuf_to_dict, dict_to_protobuf
