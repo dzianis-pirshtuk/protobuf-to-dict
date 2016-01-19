@@ -11,7 +11,7 @@ setup(
     url='https://github.com/benhodgson/protobuf-to-dict',
     license='Public Domain',
     keywords=['protobuf', 'json', 'dict'],
-    install_requires=['protobuf>=2.3.0', 'future==0.15.2'],
+    install_requires=['protobuf>=2.3.0', 'future>=0.15.2'],
     package_dir={'':'src'},
     py_modules=['protobuf_to_dict'],
     tests_require=['nose>=1.0', 'coverage==4.0.3', 'nosexcover==1.0.10'],
